@@ -18,12 +18,9 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'default-secret-key')
 # Enable CORS for specific origin (Frontend URL)
 CORS(app, resources={r"/*": {"origins": ["http://localhost:5173"]}}, supports_credentials=True)
 
-
 # Register blueprints
 app.register_blueprint(auth_bp)
 app.register_blueprint(account_bp, url_prefix="/api/accounts")
 app.register_blueprint(schedulepost_bp, url_prefix="/api/schedulepost")
 
-# Run the application
-if __name__ == "__main__":
-    app.run(debug=True)
+# Remove app.run() for production as this will be handled by Gunicorn or another WSGI server
