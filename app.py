@@ -16,7 +16,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'default-secret-key')
 
 # Enable CORS for specific origin (Frontend URL)
-CORS(app, resources={r"/*": {"origins": ["http://localhost:5173"]}}, supports_credentials=True)
+CORS(app, resources={r"/*": {"origins": ["http://localhost:5173,https://sociosync-three.vercel.app/"]}}, supports_credentials=True)
 
 # Register blueprints
 app.register_blueprint(auth_bp)
